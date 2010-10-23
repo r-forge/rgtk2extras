@@ -1,3 +1,4 @@
+# Long Running Task - for windows only
 do.long.running.task <- function(func, values, func.name = deparse(substitute(func)), input.name=NULL, output.name = "output"){
   tf1 <- "process_pid.txt"
   unlink(tf1)
