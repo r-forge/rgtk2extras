@@ -1,0 +1,434 @@
+<html><head><title>gtkDfEdit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>gtkDfEdit(RGtk2Extras)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   gtkDfEdit">
+<param name="keyword" value="R:   [.gtkDfEdit">
+<param name="keyword" value="R:   [<-.gtkDfEdit">
+<param name="keyword" value="R:   RGtk2DfEdit">
+<param name="keyword" value=" gtkDfEdit">
+</object>
+
+
+<h2>gtkDfEdit</h2>
+
+
+<h3>Description</h3>
+
+<p>
+An RGtk2 spreadsheet package for editing data frames.
+Improves on base edit.data.frame function found in utils
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+gtkDfEdit(items, dataset.name = deparse(substitute(items)), 
+size.request=c(500, 300), col.width=64, pretty_print=F,
+dataset.class="data.frame", envir=.GlobalEnv)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>items</code></td>
+<td>
+The data frame to edit
+</td></tr>
+<tr valign="top"><td><code>dataset.name</code></td>
+<td>
+The name of the data frame object to modify.
+</td></tr>
+<tr valign="top"><td><code>size.request</code></td>
+<td>
+The size request for the window.
+</td></tr>
+<tr valign="top"><td><code>col.width</code></td>
+<td>
+The column width.
+</td></tr>
+<tr valign="top"><td><code>pretty_print</code></td>
+<td>
+Apply rounding and pretty printing of numerics.
+</td></tr>
+<tr valign="top"><td><code>dataset.class</code></td>
+<td>
+Class to coerce data object in global environment to (frame or matrix)
+</td></tr>
+<tr valign="top"><td><code>envir</code></td>
+<td>
+Environment to assign data frame into on editing
+</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+gtkDfEdit is an RGtk2 based data frame viewer and editor megawidget intended to
+be familiar to spreadsheet users and to form part of larger GUI projects. 
+It provides a way to edit a data frame (see Notes for a description).
+</p>
+<p>
+Changes made in the spreadsheet will appear instantly in the data frame. 
+</p>
+<p>
+The "[" method is used for data-frame like extraction from the object. 
+</p>
+<p>
+The "[&lt;-" method is used for assignment to the table.
+</p>
+<p>
+The $getSelection method returns a list of selected row and column indices. 
+</p>
+<p>
+The $getModel method returns the backing <code>RGtkDataFrame</code>.
+</p>
+<p>
+The $getDimension method returns the backing data frame dimension.
+</p>
+<p>
+The $getColumnNames method returns the column names.
+</p>
+<p>
+The $getRowNames method returns the row names.
+</p>
+<p>
+The $setColumnName(idx, new.name) method sets the column name at a particular index.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+A GtkContainer containing the megawidget.</p>
+
+<h3>Note</h3>
+
+<p>
+The editor consists of row names, column names, the main grid of cells, and 
+the left-hand corner cell. You can move around within the grid using the 
+keyboard, the scrollbars, or by clicking and dragging with the mouse. 
+</p>
+<p>
+<STRONG>Navigation Around The Grid</STRONG>
+</p>
+<p>
+Keyboard navigation uses the familiar arrow or Shift, Shift-Enter, Tab, 
+Shift-Tab, PgUp, PgDown, Ctrl-PgUp, Ctrl-PgDown, Home, End keys. These work
+when either the grid or the column of row names has the focus.
+</p>
+<p>
+Pressing a non-navigation key when the row names have focus will cause automatic
+navigation to the closest match for the row name. The name matching entry dialog 
+will go away after a couple of seconds.
+</p>
+<p>
+Mouse navigation to a grid location can be done via the scroll bars on the grid
+or using the scroll wheel.
+</p>
+<p>
+<STRONG>Editing The Grid</STRONG>
+</p>
+<p>
+Using non-navigation keys in a selected cell will start editing within the cell.
+If the column is of factor type, the cell entry will provide the user with an 
+autocompletion containing existing factor levels.
+</p>
+<p>
+Focusing out of the cell or pressing any navigation key will end the edit. 
+Edited cell entries will be coerced to the column's data type, so alphabetical 
+strings put into numeric columns will turn into a platform-dependent variant
+of "NA". All character strings are stripped of beginning and end whitespace.
+Adding a new item to a factor column will automatically update factor levels.
+</p>
+<p>
+Deleting cells sets their contents to either NA, or "" if the cells are of type 
+character. Deleting cell contents can be done in a number of ways. Deleting a 
+block of selected cells on the grid can be done by selecting them, then 
+pressing the Delete key. The Backspace key deletes the cell the cursor is on 
+ignoring all selections.
+</p>
+<p>
+Deleting entire rows and columns can be done by selecting the row names or 
+column headers then pressing Delete, or else by right-clicking on the row names 
+or column headers to bring up the context menu then clicking "Clear Contents".
+</p>
+<p>
+Changes made in the data frame editor are automatically and invisibly updated 
+so the R data frame object is kept synchronous with the grid display.
+</p>
+<p>
+Ctrl-Z undoes any editing action on the grid. Actions that have side effects on
+the data, such as coercion, are not fully undoable, which reflects the way R
+handles these functions.
+</p>
+<p>
+<STRONG>Editing Row And Column Names</STRONG>
+</p>
+<p>
+Double clicking row names and column names allows the user to edit them. 
+Typing in the replacement name and pressing Enter, Escape or clicking somewhere 
+else will set the changed row or column name. 
+</p>
+<p>
+Duplicate row names will be turned into unique values by replacing each 
+duplicate with the lowest possible ordinal number.
+</p>
+<p>
+<STRONG>Editing The Data Frame Object Name</STRONG>
+</p>
+<p>
+The name of the data frame object is displayed in the top-left corner cell.
+</p>
+<p>
+Double clicking the top-left corner cell allows the data set to be updated and 
+reassigned when Return is pressed. When editing is finished the data frame in 
+the editor will be written to the new dataset name.
+</p>
+<p>
+<STRONG>Cell Selection</STRONG>
+</p>
+<p>
+Active cells or cell selections are indicated with a focus rectangle. Active 
+columns are indicated by a colored highlight. By clicking and dragging with the 
+mouse, you can scroll around the grid in two dimensions and select a rectangular
+block of cells. Alternatively, you can use the keyboard arrow keys with Shift 
+held down to select a block.
+</p>
+<p>
+Left-clicking and dragging on a region of cells selects the region and draws a 
+focus rectangle around it. Selections are indicated by highlighted rows, column 
+headers and a drawn focus rectangle. Rows can be selected by focusing on the 
+row name column then doing either mouse or keyboard selection. 
+</p>
+<p>
+The keyboard can also be used for grid selection. Left clicking on column 
+headers or row names selects the columns or rows. Multiple, or ranges of, 
+columns or rows can be selected using the usual Ctrl-Click and Shift-Click 
+combinations.
+</p>
+<p>
+Macintosh users should use Ctrl-Command-Click instead of Ctrl-Click.
+</p>
+<p>
+Ctrl-A, or clicking the top-left corner cell, selects all cells on the grid.
+</p>
+<p>
+<STRONG>Copying And Pasting</STRONG>
+</p>
+<p>
+Copied and pasted data is in tab-delimited form and can be pasted directly into
+other spreadsheets or text editors. We use the usual platform specific line
+separator.
+</p>
+<p>
+In Linux, the functions <code>xclip</code> and <code>xsel</code> must be available at the 
+command line for copy and paste to work. In Mac, <code>pbcopy</code> and <code>pbpaste</code>
+are used. In Windows, we use the R functions <code>writeClipboard</code> and 
+<code>readLines</code>.
+</p>
+<p>
+Ctrl-V pastes cell selections to the clipboard at the selected point into a 
+block defined by the size of the pasted matrix and starting at the top left
+corner of the top left selected cell. If necessary, this operation will change 
+the dimension of the grid. Pasting automatically coerces data to the type in 
+the column. 
+</p>
+<p>
+Ctrl-C entered while focus is on the grid copies the selected block of cells.
+</p>
+<p>
+Alternatively these functions can be accessed from the grid right click context 
+menu "Copy" and "Paste". 
+</p>
+<p>
+Copying a cell block into the clipboard will not include row or column names. To
+include row and column names in the copy operation, select "Copy With Names" 
+from the grid right click context menu.
+</p>
+<p>
+Copying and pasting rows and columns can be done through the right click context 
+menus over row headers or column headers in the "Copy" and "Paste" commands.
+Copying from a column will include the column header and copying from a row will
+include the row header. Pasting on columns will update the column headers.
+</p>
+<p>
+Copying an entire data frame into the editor can be done through the grid top 
+left corner right click selection menu through the "Paste..." command. This 
+command brings up a global paste dialog which allows the user to choose 
+whether the pasted data has row names and/or column names. When "OK" is pressed 
+the data will be pasted in.
+</p>
+<p>
+<STRONG>Data Coercion And Special Functions</STRONG>
+</p>
+<p>
+From the right click context menu on column headers the selected data frame 
+columns' assigned type can be changed. Available data types are Numeric, 
+Integer, Logical, Character, Factor. Factor is a special enumerated data type 
+(also known as a category) which can have its attributes set using the in-built
+Factor Editor (see below). To coerce a data column, just open this menu and 
+click the desired type.
+</p>
+<p>
+The column context menu function "Set As Row Names" sets the
+contents of the column as the data frame's row names. The menu function 
+"Shorten Names..." replaces long string names with their unique abbreviations. 
+</p>
+<p>
+Right clicking the top-left corner cell selects all cells and brings up a menu 
+allowing global cut, copy, and paste actions. "Edit Dataset Name" allows the 
+data set name in the R environment to be reassigned. "Default Row Names" sets 
+the row names to their ordinal numbers from 1 to the number of rows. 
+"Default Column Names" sets the column names to the familiar spreadsheet-style
+defaults.
+</p>
+<p>
+Coercion can be partially undone via Ctrl-Z, but to reflect R's handling of 
+coercion, coercing between classes that are not interchangable, such as from a 
+character to a numeric variable, is not undoable.
+</p>
+<p>
+<STRONG>Inserting And Deleting Columns And Rows</STRONG>
+</p>
+<p>
+Right clicking on row name headers brings up a menu which allows Insert and 
+Delete actions on data columns. "Insert" inserts a blank row before the row 
+clicked. "Delete" deletes the selected row range and is not available when rows
+are not selected. 
+</p>
+<p>
+Right clicking on column name headers similarly brings up a menu which allows 
+Insert and Delete actions on data columns. "Insert" inserts a blank column 
+before the column clicked. To insert a blank column at the end, click the blank 
+header at the right hand side. "Delete" deletes the selected column(s).
+</p>
+<p>
+<STRONG>Editing Factors</STRONG>
+</p>
+<p>
+Right clicking on a column header of a factor column, then selecting 
+"Factor Editor", or right clicking a selected factor column, opens the Factor 
+Editor which allows factor levels, order and contrasts to be set.
+</p>
+<p>
+The Factor Editor window displays the choice of data frame factor columns,
+the factor levels of the selected columns, and the contrasts in the
+"Factor Contrasts" expander. When a column is selected, if it is a factor, 
+its levels are displayed in the "Factor Level Order" frame. The factor levels 
+can be re-ordered, edited, deleted or additional levels added by using the
+buttons to the right of the level display.
+</p>
+<p>
+Factors are associated with contrast matrices for use in analysis of variance
+and regression models. The Factor Editor allows contrasts to be set by opening
+the "Factor Contrasts" expander frame and selecting the desired contrast type.
+The default contrast type sets the first ordered level as the control.
+</p>
+<p>
+It is often desirable to fill in factor levels according to a pattern, for
+example, in specifying a balanced experimental design. This can be done in two
+ways. First, highlighting a region of cells then right clicking on a Factor
+column, pulls up the context menu including three options, "Fill Selected Down"
+"Randomize Selected", "Fill In Blocks". 
+</p>
+<p>
+"Fill Selected Down" fills all selected cells in the column with the FIRST 
+selected cell. 
+</p>
+<p>
+"Randomize Selected" replaces all selected cells within the column that was
+clicked with the same contents, in randomized order.
+</p>
+<p>
+"Fill In Blocks" opens a new window containing a spin button specifying the 
+block size of factor level repeats to fill the selected region. For example, 
+factor levels A, B, C, block size 2, the region is filled down 
+A, A, B, B, C, C, A, A, B, B, C, C, etc. The region will be filled when the 
+spin button is modified or Enter is pressed, and the fill can be cancelled by 
+pressing Cancel. The OK button will cause the changes to be fixed.
+</p>
+<p>
+The same factor filling options as described above can be accessed directly 
+from the Factor Editor window, which can be called up as described above using
+"Selected", "Random Fill" and "Fill with Replicates...". In this
+case, it fills the entire column, not just the highlighted region.
+</p>
+<p>
+<STRONG>Sorting Data</STRONG>
+</p>
+<p>
+From the right-click menu on the corner left hand cell or on the columns, the 
+"Sort..." dialog can be opened. This dialog consists of (1) a "Sort Key" 
+Selection frame (2) "Add/Remove Key" frame to add/remove sort keys (3) "OK" and
+"Cancel" buttons.
+</p>
+<p>
+Sort operations on the data can be undone via Ctrl-Z.
+</p>
+<p>
+The "Sort Key" frame contains key choice items consisting of a combo box for 
+key selection, radio buttons for coercion of the key, and radio buttons for 
+choosing the sort direction. Sorting starts with the first key, breaking ties by 
+keys further down the list. 
+</p>
+<p>
+The combo box allows the user to choose the column of the data frame,
+including the row names, they wish to sort on. 
+</p>
+<p>
+The coercion radio buttons allow the user to sort on the corresponding column by
+the default <code>xtfrm</code> ranking, or by first coercing to character or 
+numerical form. This can be useful for sorting numeric row names or factors.
+</p>
+<p>
+The "Ascending" and "Descending" radio buttons choose whether the sort on the 
+corresponding key item is in ascending or descending order.
+</p>
+<p>
+The "Add/Remove Keys" frame contains a button "Add A Key" allowing the user to 
+add another key choice item to the "Sort Key" frame and a button "Remove A Key" 
+to remove the last key choice item in the frame. There is no limit to the number
+of keys that can be sorted.
+</p>
+<p>
+Finally the "OK" button initiates the data frame sort and the Cancel button 
+closes the dialog.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Tom Taverner &lt;Thomas.Taverner@pnl.gov&gt;, with contributions from John Verzani
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+<code><a href="dfedit.html">dfedit</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+  win &lt;- gtkWindowNew()
+  obj &lt;- gtkDfEdit(iris)
+  win$add(obj)
+  
+  obj[1,1,drop=FALSE]
+  obj$getSelection()
+</pre>
+
+
+
+<hr><div align="center">[Package <em>RGtk2Extras</em> version 0.0.1 <a href="00Index.html">Index</a>]</div>
+
+</body></html>
