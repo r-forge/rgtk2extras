@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HEAD></HEAD><HTML><BODY>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Package RGtk2Extras:  Contents">
+<param name="Local" value="00Index.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Package RGtk2Extras:  R objects">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="dfedit">
+<param name="Local" value="dfedit.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="get.value">
+<param name="Local" value="get.value.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="GetTaskPasteIn">
+<param name="Local" value="GetTaskPasteIn.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="get_all_tables">
+<param name="Local" value="get_all_tables.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEdit">
+<param name="Local" value="gtkDfEdit.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditCommandData">
+<param name="Local" value="gtkDfEditCommandData.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditDoTask">
+<param name="Local" value="gtkDfEditDoTask.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditEditFactors">
+<param name="Local" value="gtkDfEditEditFactors.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditGetColumnNames">
+<param name="Local" value="gtkDfEditGetColumnNames.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditGetDataFrame">
+<param name="Local" value="gtkDfEditGetDataFrame.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditGetDatasetName">
+<param name="Local" value="gtkDfEditGetDatasetName.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditGetDimension">
+<param name="Local" value="gtkDfEditGetDimension.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditGetModel">
+<param name="Local" value="gtkDfEditGetModel.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditGetRowNames">
+<param name="Local" value="gtkDfEditGetRowNames.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditGetSelection">
+<param name="Local" value="gtkDfEditGetSelection.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditSetActionHandler">
+<param name="Local" value="gtkDfEditSetActionHandler.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditSetDatasetName">
+<param name="Local" value="gtkDfEditSetDatasetName.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditSort">
+<param name="Local" value="gtkDfEditSort.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEditUndo">
+<param name="Local" value="gtkDfEditUndo.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="my_choose_files">
+<param name="Local" value="my_choose_files.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="object.exists">
+<param name="Local" value="object.exists.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="quick_message">
+<param name="Local" value="quick_message.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="RGtk2DfEdit">
+<param name="Local" value="gtkDfEdit.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="run.dialog">
+<param name="Local" value="run.dialog.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="safe.eval">
+<param name="Local" value="safe.eval.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="set.value">
+<param name="Local" value="set.value.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="[.GtkDfEdit">
+<param name="Local" value="z[.GtkDfEdit.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="[.gtkDfEdit">
+<param name="Local" value="gtkDfEdit.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="[<-.gtkDfEdit">
+<param name="Local" value="gtkDfEdit.html">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Package RGtk2Extras:  Titles">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Convenience function for editing a data frame in its own window">
+<param name="Local" value="dfedit.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Editor change handling.">
+<param name="Local" value="gtkDfEditDoTask.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="get Model from object...">
+<param name="Local" value="gtkDfEditGetModel.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="get selected row and column indices...">
+<param name="Local" value="gtkDfEditGetSelection.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="gtkDfEdit">
+<param name="Local" value="gtkDfEdit.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Open the Factor Editor">
+<param name="Local" value="gtkDfEditEditFactors.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Open the Sort dialog">
+<param name="Local" value="gtkDfEditSort.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Return a data frame from the RGtk2DfEdit object...">
+<param name="Local" value="gtkDfEditGetDataFrame.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Return all tables">
+<param name="Local" value="get.value.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Return the columns of the RGtk2DfEdit object...">
+<param name="Local" value="gtkDfEditGetColumnNames.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Return the dimensions (nrow, ncol) of the RGtk2DfEdit object...">
+<param name="Local" value="gtkDfEditGetDimension.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Return the row names of the RGtk2DfEdit object...">
+<param name="Local" value="gtkDfEditGetRowNames.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="S3 data extraction method...">
+<param name="Local" value="z[.GtkDfEdit.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Simple Dialog Maker package for RGtk2">
+<param name="Local" value="run.dialog.html">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="Undo the previous action">
+<param name="Local" value="gtkDfEditUndo.html">
+</OBJECT>
+</UL>
+</UL>
+</BODY></HTML>

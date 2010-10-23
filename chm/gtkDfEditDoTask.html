@@ -1,0 +1,179 @@
+<html><head><title>Editor change handling.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>gtkDfEditDoTask(RGtk2Extras)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   gtkDfEditDoTask">
+<param name="keyword" value=" Editor change handling.">
+</object>
+
+
+<h2>Editor change handling.</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Implement defined spreadsheet actions
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>gtkDfEditDoTask(x, task)</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>x</code></td>
+<td>
+The RGtk2DfEdit object</td></tr>
+<tr valign="top"><td><code>task</code></td>
+<td>
+The task list to implement.</td></tr>
+</table>
+
+<h3>Note</h3>
+
+<p>
+A task is a list of one or more action items.
+</p>
+<p>
+An action item is a list containing the action function name and its arguments: 
+</p>
+<p>
+<code>list(func=action.name, arg=list(arg1=value1, arg2=value2, ...))</code>
+</p>
+<p>
+When the task is passed to <code>x$doTask</code> the backing data frame will be 
+updated sequentially with each action and the model updated after the action 
+list is complete. This way, sequences of commands can be built up, performed 
+and undone in a single step.
+</p>
+<p>
+The following action names and function argument lists are available.
+</p>
+<p>
+ChangeCells: function(nf, row.idx, col.idx, do.coercion=T)
+</p>
+<p>
+SetFactorAttributes: function(idx, info)
+</p>
+<p>
+CoerceColumns: function(theClasses, idx)
+</p>
+<p>
+ChangeColumnNames: function(theNames, idx)
+</p>
+<p>
+ChangeRowNames: function(theNames, idx)
+</p>
+<p>
+DeleteRows: function(idx) 
+</p>
+<p>
+InsertRows: function(nf, idx)
+</p>
+<p>
+InsertNARows: function(idx)
+</p>
+<p>
+DeleteColumns: function(idx) 
+</p>
+<p>
+InsertColumns: function(nf, idx)
+</p>
+<p>
+InsertNAColumns: function(idx, NA.opt="")   
+</p>
+<p>
+nf is the new data frame being passed to the function, if any.
+</p>
+<p>
+do.coercion is the flag which tells the editor whether to coerce the new frame 
+(nf) to the type of the old data frame or not.
+</p>
+<p>
+theClasses and theNames are the new classes or new names being applied to the 
+function.
+</p>
+<p>
+idx is the indices at which to insert or change new columns or rows, or column 
+or row names.
+</p>
+<p>
+theNames and theClasses must have the same length as idx, and when "nf" is 
+present nf must have the same number of rows as idx if InsertColumns is called, 
+and the same number of columns as idx if InsertRows is being called.
+</p>
+<p>
+info is a list of form list(levels, contrasts, contrast.names). contrasts and 
+contrast.names may or may not be present.
+</p>
+<p>
+NA.opt is an optional NA to pass to InsertNAColumns to coerce to a particular
+type, for example NA.opt=NA_real_ will make the NA columns inserted numeric.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+obj &lt;- dfedit(iris)
+
+task &lt;- list(
+  list(func="ChangeCells", 
+    arg=list(nf=array(4, c(2,2)), row.idx=1:2, col.idx=1:2))
+)
+
+obj$doTask(task)
+
+task &lt;- list(
+  list(func="InsertNARows", arg=list(row.idx=2)),
+  list(func="InsertNAColumns", arg=list(col.idx=2))
+)
+
+obj$doTask(task)
+
+task &lt;- list(
+  list(func="ChangeRowNames", 
+     arg=list(theNames=c("hi", "there"), row.idx=1:2))
+)
+
+obj$doTask(task)
+
+task &lt;- list(
+  list(func="ChangeColumnNames", arg=list(theNames=c("1", "2"), col.idx=2:3))
+)
+
+obj$doTask(task)
+
+task &lt;- list(
+  list(func="CoerceColumns", 
+    arg=list(theClasses = c("character", "integer"), col.idx=1:2))
+)
+obj$doTask(task)
+
+task &lt;- list(
+  list(func="InsertRows", 
+     arg=list(nf=iris[1,], row.idx=1))
+)
+obj$doTask(task)
+
+task &lt;- list(
+  list(func="InsertColumns", 
+     arg=list(nf=iris[,1], col.idx=1))
+)
+
+obj$doTask(task)
+
+</pre>
+
+
+
+<hr><div align="center">[Package <em>RGtk2Extras</em> version 0.0.1 <a href="00Index.html">Index</a>]</div>
+
+</body></html>

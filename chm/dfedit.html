@@ -1,0 +1,71 @@
+<html><head><title>Convenience function for editing a data frame in its own window</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>dfedit(RGtk2Extras)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   dfedit">
+<param name="keyword" value=" Convenience function for editing a data frame in its own window">
+</object>
+
+
+<h2>Convenience function for editing a data frame in its own window</h2>
+
+
+<h3>Description</h3>
+
+<p>
+Optional name to assign the dataset when updating
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>dfedit(items, dataset.name = deparse(substitute(items)), 
+size=c(500, 300), col.width=64, pretty_print=F)</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>items</code></td>
+<td>
+The data frame to edit</td></tr>
+<tr valign="top"><td><code>dataset.name</code></td>
+<td>
+Optional name to assign the dataset when updating</td></tr>
+<tr valign="top"><td><code>size</code></td>
+<td>
+Optional window size request</td></tr>
+<tr valign="top"><td><code>col.width</code></td>
+<td>
+Optional column size</td></tr>
+<tr valign="top"><td><code>pretty_print</code></td>
+<td>
+Optional pretty_print</td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+IF set to NULL, is the name of the dataset.
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+Returns the <code><a href="gtkDfEdit.html">gtkDfEdit</a></code> object</p>
+
+<h3>Examples</h3>
+
+<pre> 
+  obj &lt;- dfedit(iris)
+</pre>
+
+
+
+<hr><div align="center">[Package <em>RGtk2Extras</em> version 0.0.1 <a href="00Index.html">Index</a>]</div>
+
+</body></html>
