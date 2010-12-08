@@ -565,7 +565,7 @@ DoTask <- function(.local, df, task, handler=NULL){
 #' @return An object of class GtkDfEdit for which a few RGtk2-style methods are defined
 #' @export
 dfedit <- function(items, dataset.name = deparse(substitute(items)), 
-  size=c(500, 300), col.width = 64, pretty_print=TRUE, sprintf_format="%.6G"){
+  size=c(500, 300), col.width = 64, pretty_print=FALSE, sprintf_format="%.6G"){
   
   if(missing(items)||is.null(items)) {
     items <- data.frame(NULL)
@@ -4140,7 +4140,7 @@ ConvertToDataObj <- function(items){
 #' @return An object of class GtkDfEdit for which a few RGtk2-style methods are defined
 #' @export
 gtkDfEdit <- function(items, dataset.name = deparse(substitute(items)), 
-  size.request=c(500, 300), col.width = 64, pretty_print=TRUE, sprintf_format = "%.6G",
+  size.request=c(500, 300), col.width = 64, pretty_print=FALSE, sprintf_format = "%.6G",
   dataset.class="data.frame", envir=.GlobalEnv){
    # our local environment
   #print(dim(.local$items))

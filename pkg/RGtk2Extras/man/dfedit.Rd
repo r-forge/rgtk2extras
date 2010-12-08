@@ -2,7 +2,7 @@
 \alias{dfedit}
 \title{Convenience function for editing a data frame in its own window}
 \usage{dfedit(items, dataset.name = deparse(substitute(items)), 
-size=c(500, 300), col.width=64, pretty_print=TRUE, sprintf_format = "\%.6G")}
+size=c(500, 300), col.width=64, pretty_print=FALSE, sprintf_format = "\%.6G")}
 \description{Convenience function for editing a data frame in a window.}
 \details{IF set to NULL, is the name of the dataset.}
 \value{Returns the edited data frame after running modally}

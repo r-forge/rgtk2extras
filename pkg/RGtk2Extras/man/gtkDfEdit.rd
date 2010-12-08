@@ -14,7 +14,7 @@ gtkDfEdit
 }
 \usage{
 gtkDfEdit(items, dataset.name = deparse(substitute(items)), 
-size.request=c(500, 300), col.width=64, pretty_print=TRUE,
+size.request=c(500, 300), col.width=64, pretty_print=FALSE,
 sprintf_format = "\%.6G",
 dataset.class="data.frame", envir=.GlobalEnv)
 }
