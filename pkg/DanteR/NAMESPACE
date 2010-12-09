@@ -1,0 +1,6 @@
+export(dante)
+export(ANOVA)
+export(get.ProtInfo)
+export(get.factors)
+export(get.dataset.factors)
+export(get.dataset.row.metadata.fields)

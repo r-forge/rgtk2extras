@@ -1144,7 +1144,7 @@ create.panel <- function(a, dlg.items){
     vbox.main$packStart(gtkLabelNew(a$main$label), FALSE, FALSE, 5)
   hbox0 <- gtkHBoxNew() # hbox0 is where we pack our vboxes
   curr.vbox <- gtkVBoxNew()
-  tooltips <- gtkTooltipsNew()
+  #tooltips <- gtkTooltipsNew()
 
 
   # Assign items
@@ -1165,7 +1165,7 @@ create.panel <- function(a, dlg.items){
     if(!is.null(markup$label)) lab.str <- markup$label
     
     if(!is.null(markup$tooltip) && nchar(markup$tooltip)) 
-      tooltips$setTip(dlg.item, markup$tooltip) 
+      dlg.item$setTooltipText(markup$tooltip) 
         
     expand <- !is.null(dlg.item$getData("expand"))
     bin <- myFrame(dlg.item, lab.str)  

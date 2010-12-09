@@ -1,0 +1,57 @@
+2010-10-20 tom taverner <thomas.taverner@pnl.gov>
+  * Fixed nrow(nosib.miss) bug in eigen_norm line 86 (thanks NingQing)
+  * Fixed row deletion bug caused by over-enthusiastic row-changed signal
+  * Added row names to Smoosh - TO DO
+  * Fixed data frame log transform attributes loss
+  * Fixed bug in ANOVA when factor name contains a space - TO DO
+  * Z-score or scale - TO DO
+  * ObjectItem has a tooltip
+  * Changed tooltip descriptions for Workspace/Session
+  * Fixed metadata loss in QuantileN and LR
+  * Table viewer: character to numeric kills it?!
+  * Changed pretty_print to false by default now RGtk2 is updated
+  
+2010-10-19 tom taverner <thomas.taverner@pnl.gov>
+  * Added a Refresh option to the display, made var browser refresh auto with item delete
+  * Added tooltips to table column headers
+  * Fixed bug in removing tabs from display
+  * Added an 'Edit in R' option to allow all obects to be edited
+  * Fixed Factor Editor bug on editing names
+  * Changed defaults in RRollup to match original Dante exactly - thanks Li
+  * Count table should match rows of Rolled Up
+  * Fixed bug in P-value adjustment on p-values sometimes being slightly > 1 - thanks Joe
+  * Fixed scroll bug in dialog list box (thanks NingQing)
+  * Data/Filter will now remove NA's in factors it filters on
+  * ANOVA now optionally returns residuals and fitted
+  * Added icons for Volcano Plot and Split Significant to toolbar
+  * Fixed History tab bug with dialog progress bars
+  * Fisher Test has min peptide count and splitting=False should work
+  * Fixed Fisher Test bug for 1-entry factors
+  * Added Aggregate and Smoosh functions to Data menu
+  * Irreproducible loading bug on Mac64
+    
+2010-10-05 tom taverner <thomas.taverner@pnl.gov>
+  * Added a feature to Column Metadata to guess factor names from data names
+  * Fixed bug in p-value adjustment for q-value
+  * Fixed bug in reading SQLite column names (thanks John)
+  * Made opening session files and datasets more responsive
+  * Fixed bug in reading in tables containing quotes (thanks Jeremy)
+  
+2010-10-03 tom taverner <thomas.taverner@pnl.gov>
+  * Improvements to Volcano Plot output, now displays thresholds and summary counts
+  * Fixed bug in CorrelationHeatmap - still need to improve margins
+  * Fixed qvalue in P-Value Adjustment
+  * Updated to v0.1.0 now we've got most of the major functionalities we need  
+
+2010-10-01 tom taverner <thomas.taverner@pnl.gov>
+  * The Table Viewer should display factors with NA levels as "NA" more reliably
+  * ANOVA, RRollup and other long running tasks have interruptable progress bars in their dialogs
+  * ANOVA has a control level chooser
+  * Heatmap Clusters color bars should behave better
+  * Tabs are displayed abbreviated with tooltips
+  * Tabs have right-click delete menu
+  * Volcano Plot has a point picking option
+  * Get Differentially expressed has an option to generate a global summary table
+  * The Dynamic Row Plotter has a field chooser and a table export option
+  * PCA Plot has more 3D plot options, including choosing principal axes
+  * Fixed a small bug in VennPlot

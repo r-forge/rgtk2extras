@@ -3090,8 +3090,7 @@ Corner3rdButtonMenu <- function(.local){
   )   #..
   m$append(renameItem)  
   m$append(gtkSeparatorMenuItem())  
-      
-    
+          
   openItem <- gtkMenuItem("Open File...")  
   m$append(openItem)	        
   gSignalConnect(openItem, "activate", function(...){
@@ -3157,7 +3156,7 @@ Corner3rdButtonMenu <- function(.local){
   setNameItem <- gtkMenuItem("Edit Dataset Name")
   m$append(setNameItem)	  
   
-  lapply(c(setNameItem), gtkWidgetSetSensitive, FALSE)
+  lapply(c(renameItem, setNameItem), gtkWidgetSetSensitive, FALSE)
   
   m$append(gtkSeparatorMenuItem())
   aboutItem <- gtkMenuItem("About...")
@@ -3314,7 +3313,7 @@ Column3rdButtonMenu <- function(.local, col.idx){
         box$packEnd(label, FALSE, FALSE, 0)
         if (nchar(new.name) > 0 && new.name != colnames(.local$theFrame)[col.idx+COLUMN_OFFSET]){
           DoTaskWrapper(.local, task)
-         .local$tooltips$setTip(box, new.name)          
+           box$setTooltipText(new.name) 
         }
         FALSE
       }, data=list(.local=.local, col.idx=col.idx))
@@ -3459,7 +3458,7 @@ CornerBoxButtonPress <- function (obj, event, data){
      gtkTreeViewGetSelection(.local$view.rn)$unselectAll()
      SelectAll(.local)     
      
-   } else if(0 && typ == as.integer(5)){ # double clicked 
+   } else if(0 && typ == as.integer(5)){ # turned off double clicked 
     gtkWidgetSetState(.local$rowname.column.obj$button, as.integer(1))
                
     EditHeaderBox(obj, handler = function(obj, event, data){
@@ -3481,8 +3480,7 @@ CornerBoxButtonPress <- function (obj, event, data){
 					my.assign(nam)
 				}, error = function(e) {  # User called it something strange
 					my.assign(deparse(nam))
-				})
-  
+				})  
           message(paste("RGtk2DfEdit: Creating dataset", .local$dataset.name, "in global environment."))
         }
         obj$destroy()
@@ -3515,7 +3513,7 @@ EditHeaderBox <- function(obj, handler, data){
 
   box = obj$getChildren()[[1]]
   label = box$getChildren()[[1]]
-  height = box$allocation$height
+  height = box$allocation$allocation$height-HEADER_BOX_MARGIN
   box$remove(label)
   entry <- gtkEntryNew()
   entry$setText(label$getText())
@@ -3525,8 +3523,9 @@ EditHeaderBox <- function(obj, handler, data){
   sapply(as.integer(0:1), function(y) entry$modifyText(y, as.GdkColor("black")))    
   entry$modifyBase(as.integer(1), as.GdkColor(c(255,255,255)*256))  
   entry$setAlignment(1)
-  entry$setSizeRequest(-1, height-HEADER_BOX_MARGIN) # 1 pixel margins I guess?
-  box$packEnd(entry, FALSE, FALSE, 0)
+  if(is.numeric(height) && length(height)==1)
+    entry$setSizeRequest(-1, height) # 1 pixel margins I guess?
+  box$packEnd(child=entry, expand=TRUE, fill=TRUE, padding=0)
   entry$grabFocus()
   gSignalConnect(entry, "key-press-event", function(obj, event, data=col.idx){
     if (event[["keyval"]]%in%myValidNavigationKeys) .local$view$grabFocus()
@@ -3755,7 +3754,7 @@ MakeButtonAndEventBox <- function(col.obj, label.str, handler, .local){
   gtkWidgetModifyBg(eventbox, as.integer(1), selectedColumnColor)
 	col.obj$button <- gtkWidgetGetParent(gtkWidgetGetParent(alignment))
 	gSignalConnect(eventbox, "button-press-event", handler, data=list(col.idx=col.idx, .local=.local))
-  .local$tooltips$setTip(eventbox, label.str)
+  eventbox$setTooltipText(label.str) 
 	return(col.obj)
 }
 
@@ -4038,8 +4037,11 @@ MakeDFEditWindow <- function(.local, theFrame, size.request=c(500, 300), col.wid
     if(.local$mapped) return(TRUE)
     .local$mapped <- TRUE    
     .local$do.paint <- FALSE        
+    #.local$rowname.column.obj <- MakeButtonAndEventBox(.local$rowname.column.obj, 
+    # label.str=.local$dataset.name, handler=CornerBoxButtonPress, .local=.local)      
+    # Change the displayed name to "" to avoid confusion.
     .local$rowname.column.obj <- MakeButtonAndEventBox(.local$rowname.column.obj, 
-      label.str=.local$dataset.name, handler=CornerBoxButtonPress, .local=.local)      
+      label.str="", handler=CornerBoxButtonPress, .local=.local)            
              
     allColumns <- InitAllColumns(.local, .local$model, allColumns)
     .local$allColumns <- allColumns    
@@ -4148,9 +4150,7 @@ gtkDfEdit <- function(items, dataset.name = deparse(substitute(items)),
   .local$items <- items
   .local$dataset.name <- dataset.name
   .local$dataset.class <- class(items)
-  .local$pretty_print <- pretty_print    
-  
-  .local$tooltips <- gtkTooltipsNew()
+  .local$pretty_print <- pretty_print      
 
   tryCatch(sprintf(sprintf_format, pi), error = function(e) stop(e$message))
   .local$SPRINTF_FORMAT <- sprintf_format

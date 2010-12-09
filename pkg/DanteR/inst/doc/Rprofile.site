@@ -1,0 +1,11 @@
+.First <- function() {
+	cat("Initialized libraries...\n")
+	.First.sys() # this runs after .First normally, and loads default packages
+	cat("Loading DanteR...\n")
+	flush.console()
+	t <- system.time({library(DanteR); dante()})
+	cat(paste("DanteR initialization time (seconds):", t[1], "\n"))
+	flush.console()
+  	# remove this so the user saving the workspace won't keep init-ing DanteR
+	# remove(.First, envir=.GlobalEnv)
+}
