@@ -1,8 +1,8 @@
 Package: RGtk2Extras
 Type: Package
 Title: Data frame editor and dialog making wrapper for RGtk2
-Version: 0.5.0
-Date: 2010-09-27
+Version: 0.5.1
+Date: 2010-12-09
 Author: Tom Taverner, with contributions from John Verzani and Iago Conde
 Maintainer: Tom Taverner <thomas.taverner@pnl.gov>
 Description: Useful add-ons for RGtk2 
