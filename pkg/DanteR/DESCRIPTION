@@ -6,6 +6,6 @@ Date: 2010-10-19
 Author: Tom Taverner
 Maintainer: Tom Taverner <thomas.taverner@pnl.gov>
 Description: Proteomics data analysis tool
-Depends: RGtk2Extras, gWidgets, gWidgetsRGtk2, impute, RODBC, e1071, amap, plotrix, reshape, nlme, rgl, gplots, car, outliers, RSQLite, scatterplot3d, colorspace, ellipse, MASS, pls, Cairo, Hmisc, diagram, methods
+Depends: RGtk2Extras, gWidgets, gWidgetsRGtk2, impute, RODBC, e1071, amap, plotrix, reshape, nlme, rgl, gplots, car, outliers, RSQLite, scatterplot3d, colorspace, ellipse, MASS, pls, Hmisc, diagram, methods
 License: GPL (>= 2)
 LazyLoad: yes
