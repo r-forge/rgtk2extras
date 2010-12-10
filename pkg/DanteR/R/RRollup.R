@@ -265,8 +265,8 @@ plotCurrProt.RefRup <- function(currData,pdata,file="deleteme.png",
                             IPI="IPI:IPI00009793.1")
 # pdata : output from protein rollup (scale.proteins)
 {
-    require(Cairo)
-    CairoPNG(filename=file,width=IMGwidth,height=IMGheight,pointsize=FNTsize,bg=bkground,res=600)
+    #require(Cairo)
+    #CairoPNG(filename=file,width=IMGwidth,height=IMGheight,pointsize=FNTsize,bg=bkground,res=600)
     #png(filename=file,width=1024,height=768,pointsize=12,bg=bkground,
     #        res=600)
     tryCatch(

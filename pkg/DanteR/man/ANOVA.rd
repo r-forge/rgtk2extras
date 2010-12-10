@@ -5,7 +5,7 @@
 Data set ANOVA
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Perform ANOVA on peptide crosstab data, possibly using additional row-wise factors.
 }
 \usage{
 ANOVA(dataset, split.by.row.metadata = FALSE, split.row.metadata.field = NULL, column.metadata.fields = NULL, do.interactions = FALSE, block.order.function.name = "median", nrow.block.min = 1, nrow.block.max = 5, useglm = "lm", use.weight = FALSE, weight.function = "NULL", weight.par = 0, formula.string = ".", do.residuals = FALSE, first.level = character(0), first.level.contrasts = character(0), progressbar = NULL, progresslabel = NULL, return.all.fits = FALSE, return.residuals = FALSE, ...)
@@ -114,39 +114,9 @@ For LTQ LC-MS data a moderate exponential weighting y_ij ~ exp(-0.25y) fits
 instrument noise well.
 
 }
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
 \references{
 Oberg, A. L.; Mahoney, D. W.; Eckel-Passow, J. E.; Malone, C. J.; 
 Wolfinger, R. D.; Hill, E. G.; Cooper, L. T.; Onuma, O. K.; Spiro, C.; 
 Therneau, T. M.; Bergen, H. R., 3rd J Proteome Res 2008, 7, 225.
 
 }
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
-

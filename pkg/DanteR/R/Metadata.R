@@ -340,7 +340,7 @@ Row_Metadata <- function(dataset, row.metadata.name, n.fields){
   dataset.name <- deparse(substitute(dataset))
   choice <- TRUE
   if(object.exists(row.metadata.name))  
-    choice <- gconfirm(paste("Warning!", column.metadata.name, "exists and will be replaced. OK?"))
+    choice <- gconfirm(paste("Warning!", row.metadata.name, "exists and will be replaced. OK?"))
   if(choice){  
     metadata_rv <- Create.Metadata.Table(dataset, 1, table.name = row.metadata.name, n.columns = n.fields)
     assign(dataset.name, metadata_rv$dataset, envir=.GlobalEnv)  
