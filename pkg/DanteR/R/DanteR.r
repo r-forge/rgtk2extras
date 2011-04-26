@@ -1,4 +1,4 @@
-# Written by Tom Taverner <Thomas.Taverner@pnl.gov>
+# Written by Tom Taverner <t.taverner@gmail.com>
 # for the U.S. Department of Energy (PNNL, Richland, WA, USA)
 # Website: http://omics.pnl.gov/software
 #
