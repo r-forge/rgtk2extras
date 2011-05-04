@@ -224,9 +224,15 @@ protlevel_pvals = function(pr, treatment){
     ff <- results[5][2,]
   }
 
-  DFtr = ncol(X)- ncol(X2)  # tr - tretment group
-  DFres =  nrow(X2) - ncol(X)  # sum(ngrps(varPreserve)) + 1
+  #DFtr = ncol(X)- ncol(X2)  # tr - tretment group
+  #DFres =  nrow(X2) - ncol(X)  # sum(ngrps(varPreserve)) + 1
   
+  # TT - updated by YK 4-5-11
+  DFtr = ncol(X)- ncol(X2)  # tr - tretment group
+  # the following lines incorrect as disregarded NAs...
+  # DFres =  nrow(X2) - ncol(X)  # sum(ngrps(varPreserve)) + 1
+  DFres = fit_unrestricted$df.residual
+  # OR equivalent:   # DFres =  sum(!is.na(allY)) - ncol(X)
 
   pvals <- array(NA, lf)
   # adjust the test statistic by [1, 1.18, ... 10] factors
